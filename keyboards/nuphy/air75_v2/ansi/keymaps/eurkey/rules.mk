@@ -1,0 +1,2 @@
+VIA_ENABLE = no
+#KEY_OVERRIDE_ENABLE = yes
