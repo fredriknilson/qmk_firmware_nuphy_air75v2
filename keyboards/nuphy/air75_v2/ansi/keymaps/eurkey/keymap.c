@@ -53,18 +53,18 @@ enum layers {
 
 // -------------------- Tab dance --------------------
 
-enum {
-    TD_G_CTRL_LEFT = 0,
-    TD_H_CTRL_RGHT,
-};
+// enum {
+//     TD_G_CTRL_LEFT = 0,
+//     TD_H_CTRL_RGHT,
+// };
 
-tap_dance_action_t tap_dance_actions[] = {
-    [TD_G_CTRL_LEFT] = ACTION_TAP_DANCE_DOUBLE(KC_G, LCTL(KC_LEFT)),
-    [TD_H_CTRL_RGHT] = ACTION_TAP_DANCE_DOUBLE(KC_H, LCTL(KC_RGHT)),
-};
+// tap_dance_action_t tap_dance_actions[] = {
+//     [TD_G_CTRL_LEFT] = ACTION_TAP_DANCE_DOUBLE(KC_G, LCTL(KC_LEFT)),
+//     [TD_H_CTRL_RGHT] = ACTION_TAP_DANCE_DOUBLE(KC_H, LCTL(KC_RGHT)),
+// };
 
-#define TD_G TD(TD_G_CTRL_LEFT)
-#define TD_H TD(TD_H_CTRL_RGHT)
+// #define TD_G TD(TD_G_CTRL_LEFT)
+// #define TD_H TD(TD_H_CTRL_RGHT)
 
 
 // -------------------- Custom keycode handling --------------------
@@ -108,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC,     KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,     SYS_PRT,    KC_INS,     KC_DEL,
     KC_GRV,     KC_1,       KC_2,       KC_3,       KC_4,       KC_5,       KC_6,       KC_7,       KC_8,       KC_9,       KC_0,       KC_MINS,    KC_EQL,                 KC_BSPC,    KC_HOME,
     KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,       KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       EU_ARNG,    KC_QUOT,                KC_BSLS,    KC_END,
-    KC_MEH,     HM_A,       HM_S,       HM_D,       HM_F,       TD_G,       TD_H,       HM_J,       HM_K,       HM_L,       HM_ODIA,    EU_ADIA,                            KC_ENT,     KC_PGUP,
+    KC_MEH,     HM_A,       HM_S,       HM_D,       HM_F,       KC_G,       KC_H,       HM_J,       HM_K,       HM_L,       HM_ODIA,    EU_ADIA,                            KC_ENT,     KC_PGUP,
     KC_LSFT,    KC_Z,       KC_X,       KC_C,       KC_V,       KC_B,       KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_QUES,                KC_RSFT,                KC_UP,      KC_PGDN,
     KC_LCTL,    KC_LALT,    KC_LGUI,    LT(_SYM, KC_SPC),                                                                   KC_RALT,    MO(_MACFN), KC_RCTL,    KC_LEFT,    KC_DOWN,    KC_RGHT),
 
