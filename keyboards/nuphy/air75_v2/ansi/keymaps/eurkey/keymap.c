@@ -157,8 +157,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  `           1           2           3           4           5           6           7           8           9           0            -           =           PrtSc       Ins         Del
     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,     _______,    _______,    _______,    _______,    _______,
     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,     _______,    _______,    _______,                _______,
-    _______,    KC_QUOT,    KC_DQUO,    KC_CIRC,    KC_QUES,    EU_ACUT,    KC_LT,      KC_LBRC,    KC_UNDS,    KC_RBRC,    KC_GT,       EU_DIAE,    _______,    _______,                _______,
-    _______,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_PERC,    KC_LCBR,    KC_LPRN,    KC_COLN,    KC_RPRN,    KC_RCBR,     EU_DEG,                 _______,                _______,
-    _______,    KC_TILD,    KC_AMPR,    KC_SCLN,    KC_BSLS,    KC_PIPE,    KC_SLSH,    KC_ASTR,    KC_MINS,    KC_PLUS,    KC_EQL,                              _______,    _______,    _______,
+    _______,    KC_QUES,    KC_DQUO,    KC_LT,      KC_GT,      KC_PLUS,    KC_UNDS,    KC_LBRC,    KC_RBRC,    KC_BSLS,    KC_COLN,     EU_DEG,     _______,    _______,                _______, 
+    _______,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_EQL,     KC_MINS,    KC_LPRN,    KC_RPRN,    KC_SLSH,    KC_SCLN,     EU_SECT,                _______,                _______,
+    _______,    KC_AMPR,    KC_QUOT,    KC_CIRC,    EU_EURO,    KC_PERC,    KC_ASTR,    KC_LCBR,    KC_RCBR,    KC_PIPE,    EU_DIAE,                             _______,    _______,    _______,
     _______,    _______,    _______,    _______,                                                                            _______,     _______,    _______,    _______,	 _______,    _______),
 };
