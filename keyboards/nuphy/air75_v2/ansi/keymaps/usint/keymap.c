@@ -17,8 +17,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 
-#include "keymap_eurkey.h"
-
 // -------------------- Layers --------------------
 
 // Layer enum
@@ -36,6 +34,12 @@ enum layers {
 #define MAC_LAYERS ((1 << _MAC) | (1 << _MACFUN) | (1 << _MACSYM))
 #define WIN_LAYERS ((1 << _WIN) | (1 << _WINFUN) | (1 << _WINSYM))
 
+// -------------------- Aliases --------------------
+#define MC_ARNG ALGR(KC_A)
+
+#define WN_ARNG ALGR(KC_W)
+#define WN_ADIA ALGR(KC_Q)
+#define WN_ODIA ALGR(KC_P)
 
 // -------------------- Home Row Mods --------------------
 
@@ -49,35 +53,33 @@ enum layers {
 #define HM_J    RGUI_T(KC_J) // GUI + J
 #define HM_K    RALT_T(KC_K) // Alt + K
 #define HM_L    RCTL_T(KC_L) // Control + L
-#define HM_ODIA RSFT_T(EU_ODIA) // Shift + Ö
+#define HM_ODIA RSFT_T(MC_ODIA) // Shift + Ö
 
 
 // -------------------- Tab dance --------------------
 
-// enum {
-//     TD_G_CTRL_LEFT = 0,
-//     TD_H_CTRL_RGHT,
-// };
-
-// tap_dance_action_t tap_dance_actions[] = {
-//     [TD_G_CTRL_LEFT] = ACTION_TAP_DANCE_DOUBLE(KC_G, LCTL(KC_LEFT)),
-//     [TD_H_CTRL_RGHT] = ACTION_TAP_DANCE_DOUBLE(KC_H, LCTL(KC_RGHT)),
-// };
-
-// #define TD_G TD(TD_G_CTRL_LEFT)
-// #define TD_H TD(TD_H_CTRL_RGHT)
-
 
 // -------------------- Custom keycode handling --------------------
 
+enum {
+  MC_ADIA = QK_USER_0,
+  MC_ODIA,
+};
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case RSFT_T(EU_ODIA):
-            if (record->tap.count && record->event.pressed) {
-                tap_code16(EU_ODIA); // Send EU_ODIA on tap
-                return false;        // Return false to ignore further processing of key
+        case MC_ADIA:
+            if (record->event.pressed) {
+                tap_code16(KC_DQUO);
+                tap_code(KC_A);
             }
-            break;
+            return false;
+        case MC_ODIA:
+            if (record->event.pressed) {
+                tap_code16(KC_DQUO);
+                tap_code(KC_O);
+            }
+            return false;
     }
     return true;
 }
@@ -108,16 +110,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc       Ins         Del
     KC_ESC,     KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,     SYS_PRT,    KC_INS,     KC_DEL,
     KC_GRV,     KC_1,       KC_2,       KC_3,       KC_4,       KC_5,       KC_6,       KC_7,       KC_8,       KC_9,       KC_0,       KC_MINS,    KC_EQL,                 KC_BSPC,    KC_HOME,
-    KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,       KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       EU_ARNG,    KC_QUOT,                KC_BSLS,    KC_END,
-    MO(_SYMMAC),HM_A,       HM_S,       HM_D,       HM_F,       KC_G,       KC_H,       HM_J,       HM_K,       HM_L,       HM_ODIA,    EU_ADIA,                            KC_ENT,     KC_PGUP,
+    KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,       KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       MC_ARNG,    KC_QUOT,                KC_BSLS,    KC_END,
+    MO(_SYMMAC),KC_A,       KC_S,       KC_D,       KC_F,       KC_G,       KC_H,       KC_J,       KC_K,       KC_L,       MC_ODIA,    MC_ADIA,                            KC_ENT,     KC_PGUP,
     KC_LSFT,    KC_Z,       KC_X,       KC_C,       KC_V,       KC_B,       KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_QUES,                KC_RSFT,                KC_UP,      KC_PGDN,
-    KC_LCTL,    KC_LALT,    KC_LGUI,    LT(_SYMMAC, KC_SPC),                                                                   KC_RALT,    MO(_MACFUN),KC_MEH,     KC_LEFT,    KC_DOWN,    KC_RGHT),
+    KC_LCTL,    KC_LALT,    KC_LGUI,    LT(_SYMMAC, KC_SPC),                                                                KC_RALT,    MO(_MACFUN),KC_MEH,     KC_LEFT,    KC_DOWN,    KC_RGHT),
 
 // layer Mac Funnction
 [_MACFUN] = LAYOUT_75_ansi(
 //  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc       Ins         Del
     DEV_RESET,  KC_BRID,    KC_BRIU,    KC_MCTL,    MAC_SEARCH, MAC_VOICE,   MAC_DND,   KC_MPRV,    KC_MPLY,     KC_MNXT,   KC_MUTE,    KC_VOLD,    KC_VOLU,    MAC_PRTA,   BAT_SHOW,   BAT_NUM,
-    _______,    LNK_BLE1,   LNK_BLE2,   LNK_BLE3,   LNK_RF,     _______,     _______,   _______,    _______,     _______,   _______,    _______,	  _______,                _______,    _______,
+    _______,    LNK_BLE1,   LNK_BLE2,   LNK_BLE3,   LNK_RF,     _______,     _______,   _______,    _______,     _______,   _______,    _______,	_______,                _______,    _______,
     _______,    _______,    _______,    _______,    _______,    _______,     _______,   _______,    _______,     _______,   _______,    _______,    _______,                _______,    _______,
     _______,    _______,    _______,    _______,    _______,    _______,     _______,   _______,    _______,     _______,   _______,    _______,                            _______,    _______,
     _______,    _______,    _______,    _______,    _______,    _______,     _______,   MO(_SYS),   RGB_SPD,     RGB_SPI,   _______,                            _______,    RM_VALU,    _______,
@@ -128,8 +130,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc       Ins         Del
     KC_ESC,     KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,     KC_PSCR,    KC_INS,     KC_DEL,
     KC_GRV,     KC_1,       KC_2,       KC_3,       KC_4,       KC_5,       KC_6,       KC_7,       KC_8,       KC_9,       KC_0,       KC_MINS,    KC_EQL,                 KC_BSPC,    KC_HOME,
-    KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,       KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       EU_ARNG,    KC_QUOT,                KC_BSLS,    KC_END,
-    MO(_SYMWIN),KC_A,       KC_S,       KC_D,       KC_F,       KC_G,       KC_H,       KC_J,       KC_K,       KC_L,       EU_ODIA,    EU_ADIA,                            KC_ENT,     KC_PGUP,
+    KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,       KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       WN_ARNG,    KC_QUOT,                KC_BSLS,    KC_END,
+    MO(_SYMWIN),KC_A,       KC_S,       KC_D,       KC_F,       KC_G,       KC_H,       KC_J,       KC_K,       KC_L,       WN_ODIA,    WN_ADIA,                            KC_ENT,     KC_PGUP,
     KC_LSFT,    KC_Z,       KC_X,       KC_C,       KC_V,       KC_B,       KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_QUES,                KC_RSFT,                KC_UP,      KC_PGDN,
     KC_LCTL,    KC_LALT,    KC_LGUI,    KC_SPC,                                                                             KC_RALT,    MO(_WINFUN),KC_MEH,     KC_LEFT,    KC_DOWN,    KC_RGHT),
 
@@ -137,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_WINFUN] = LAYOUT_75_ansi(
 //  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc       Ins         Del
     DEV_RESET,  KC_BRID,    KC_BRIU,    KC_CALC,    _______,    _______,    _______,    KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MUTE,    KC_VOLD,    KC_VOLU,    _______,    BAT_SHOW,   BAT_NUM,
-    _______,    LNK_BLE1,   LNK_BLE2,   LNK_BLE3,   LNK_RF,     _______,    _______,    _______,    _______,    _______,    _______,    _______,	  _______,    _______,                _______,
+    _______,    LNK_BLE1,   LNK_BLE2,   LNK_BLE3,   LNK_RF,     _______,    _______,    _______,    _______,    _______,    _______,    _______,	_______,    _______,                _______,
     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,                _______,
     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,                _______,                _______,
     _______,    _______,    _______,    _______,    _______,    _______,    _______,    MO(_SYS),   RGB_SPD,    RGB_SPI,    _______,                            _______,    RM_VALU,    _______,
@@ -155,21 +157,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // layer Mac Sym
 [_SYMMAC] = LAYOUT_75_ansi(
-//  `           1           2           3           4           5           6           7           8           9           0            -           =           PrtSc       Ins         Del
-    DEV_RESET,  KC_BRID,    KC_BRIU,    KC_MCTL,    MAC_SEARCH, MAC_VOICE,  MAC_DND,    KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MUTE,     KC_VOLD,    KC_VOLU,    MAC_PRTA,   _______,    _______,
-    KC_TILD,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_PERC,    KC_CIRC,    KC_AMPR,    KC_ASTR,    KC_LPRN,    KC_RPRN,     KC_UNDS,    KC_PLUS,    _______,                _______,
-    _______,    KC_QUES,    KC_DQUO,    KC_LT,      KC_GT,      KC_PLUS,    KC_UNDS,    KC_LBRC,    KC_RBRC,    KC_BSLS,    KC_COLN,     EU_DEG,     _______,    _______,                _______,
-    _______,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_EQL,     KC_MINS,    KC_LPRN,    KC_RPRN,    KC_SLSH,    KC_SCLN,     EU_SECT,                _______,                _______,
-    _______,    KC_AMPR,    KC_QUOT,    KC_CIRC,    EU_EURO,    KC_PERC,    KC_ASTR,    KC_LCBR,    KC_RCBR,    KC_PIPE,    EU_DIAE,                             _______,    _______,    _______,
-    _______,    _______,    _______,    _______,                                                                            _______,     _______,    _______,    _______,	   _______,    _______),
+//  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc       Ins         Del
+    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,
+    KC_TILD,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_PERC,    KC_CIRC,    KC_AMPR,    KC_ASTR,    KC_LPRN,    KC_RPRN,    KC_UNDS,    KC_PLUS,    _______,                _______,
+    _______,    KC_QUES,    KC_DQUO,    KC_LT,      KC_GT,      KC_PLUS,    KC_UNDS,    KC_LBRC,    KC_RBRC,    KC_BSLS,    KC_COLN,    _______,    _______,    _______,                _______,
+    _______,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_EQL,     KC_MINS,    KC_LPRN,    KC_RPRN,    KC_SLSH,    KC_SCLN,    _______,                _______,                _______,
+    _______,    KC_AMPR,    KC_QUOT,    KC_CIRC,    _______,    KC_PERC,    KC_ASTR,    KC_LCBR,    KC_RCBR,    KC_PIPE,    _______,                            _______,    _______,    _______,
+    _______,    _______,    _______,    _______,                                                                            _______,    _______,    _______,    _______,	_______,    _______),
 
 // layer Win Symbols
 [_SYMWIN] = LAYOUT_75_ansi(
-//  `           1           2           3           4           5           6           7           8           9           0            -           =           PrtSc       Ins         Del
-    DEV_RESET,  KC_BRID,    KC_BRIU,    KC_CALC,    _______,    _______,    _______,    KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MUTE,     KC_VOLD,    KC_VOLU,    _______,    _______,    _______,
-    KC_TILD,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_PERC,    KC_CIRC,    KC_AMPR,    KC_ASTR,    KC_LPRN,    KC_RPRN,     KC_UNDS,    KC_PLUS,    _______,                _______,
-    _______,    KC_QUES,    KC_DQUO,    KC_LT,      KC_GT,      KC_PLUS,    KC_UNDS,    KC_LBRC,    KC_RBRC,    KC_BSLS,    KC_COLN,     EU_DEG,     _______,    _______,                _______,
-    _______,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_EQL,     KC_MINS,    KC_LPRN,    KC_RPRN,    KC_SLSH,    KC_SCLN,     EU_SECT,                _______,                _______,
-    _______,    KC_AMPR,    KC_QUOT,    KC_CIRC,    EU_EURO,    KC_PERC,    KC_ASTR,    KC_LCBR,    KC_RCBR,    KC_PIPE,    EU_DIAE,                             _______,    _______,    _______,
-    _______,    _______,    _______,    _______,                                                                            _______,     _______,    _______,    _______,	   _______,    _______),
+//  `           1           2           3           4           5           6           7           8           9           0            -          =           PrtSc       Ins         Del
+    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,     _______,   _______,    _______,    _______,    _______,
+    KC_TILD,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_PERC,    KC_CIRC,    KC_AMPR,    KC_ASTR,    KC_LPRN,    KC_RPRN,     KC_UNDS,   KC_PLUS,    _______,                _______,
+    _______,    KC_QUES,    KC_DQUO,    KC_LT,      KC_GT,      KC_PLUS,    KC_UNDS,    KC_LBRC,    KC_RBRC,    KC_BSLS,    KC_COLN,     _______,   _______,    _______,                _______,
+    _______,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_EQL,     KC_MINS,    KC_LPRN,    KC_RPRN,    KC_SLSH,    KC_SCLN,     _______,               _______,                _______,
+    _______,    KC_AMPR,    KC_QUOT,    KC_CIRC,    _______,    KC_PERC,    KC_ASTR,    KC_LCBR,    KC_RCBR,    KC_PIPE,    _______,                            _______,    _______,    _______,
+    _______,    _______,    _______,    _______,                                                                            _______,     _______,   _______,    _______,	_______,    _______),
 };
