@@ -24,17 +24,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Layer enum
 enum layers {
     _MAC,
-    _MACFUN,
+    _MACFN,
     _WIN,
-    _WINFUN,
+    _WINFN,
+    _MACSM,
+    _WINSM,
     _SYS,
-    _SYMMAC,
-    _SYMWIN,
 };
 
 // Layer Masks
-#define MAC_LAYERS ((1 << _MAC) | (1 << _MACFUN) | (1 << _MACSYM))
-#define WIN_LAYERS ((1 << _WIN) | (1 << _WINFUN) | (1 << _WINSYM))
+#define MAC_LAYERS ((1 << _MAC) | (1 << _MACFN) | (1 << _MACSM))
+#define WIN_LAYERS ((1 << _WIN) | (1 << _WINFN) | (1 << _WINSM))
 
 
 // -------------------- Home Row Mods --------------------
@@ -108,68 +108,69 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc       Ins         Del
     KC_ESC,     KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,     SYS_PRT,    KC_INS,     KC_DEL,
     KC_GRV,     KC_1,       KC_2,       KC_3,       KC_4,       KC_5,       KC_6,       KC_7,       KC_8,       KC_9,       KC_0,       KC_MINS,    KC_EQL,                 KC_BSPC,    KC_HOME,
-    KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,       KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       EU_ARNG,    KC_QUOT,                KC_BSLS,    KC_END,
-    MO(_SYMMAC),KC_A,       KC_S,       KC_D,       KC_F,       KC_G,       KC_H,       KC_J,       KC_K,       KC_L,       EU_ODIA,    EU_ADIA,                            KC_ENT,     KC_PGUP,
-    KC_LSFT,    KC_Z,       KC_X,       KC_C,       KC_V,       KC_B,       KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_QUES,                KC_RSFT,                KC_UP,      KC_PGDN,
-    KC_LCTL,    KC_LALT,    KC_LGUI,    LT(_SYMMAC, KC_SPC),                                                                   KC_RALT,    MO(_MACFUN),KC_MEH,     KC_LEFT,    KC_DOWN,    KC_RGHT),
+    KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,       KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       EU_ARNG,    KC_QUOT,    KC_BSLS,                KC_END,
+    MO(_MACSM), KC_A,       KC_S,       KC_D,       KC_F,       KC_G,       KC_H,       KC_J,       KC_K,       KC_L,       EU_ODIA,    EU_ADIA,                            KC_ENT,     KC_PGUP,
+    KC_LSFT,    KC_Z,       KC_X,       KC_C,       KC_V,       KC_B,       KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_QUES,                            KC_RSFT,    KC_UP,      KC_PGDN,
+    KC_LCTL,    KC_LALT,    KC_LGUI,    LT(_MACCM, KC_SPC),                                                                 KC_RALT,    MO(_MACFN), KC_MEH,     KC_LEFT,    KC_DOWN,    KC_RGHT),
 
 // layer Mac Funnction
 [_MACFUN] = LAYOUT_75_ansi(
 //  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc       Ins         Del
     DEV_RESET,  KC_BRID,    KC_BRIU,    KC_MCTL,    MAC_SEARCH, MAC_VOICE,   MAC_DND,   KC_MPRV,    KC_MPLY,     KC_MNXT,   KC_MUTE,    KC_VOLD,    KC_VOLU,    MAC_PRTA,   BAT_SHOW,   BAT_NUM,
     _______,    LNK_BLE1,   LNK_BLE2,   LNK_BLE3,   LNK_RF,     _______,     _______,   _______,    _______,     _______,   _______,    _______,	  _______,                _______,    _______,
-    _______,    _______,    _______,    _______,    _______,    _______,     _______,   _______,    _______,     _______,   _______,    _______,    _______,                _______,    _______,
+    _______,    _______,    _______,    _______,    _______,    _______,     _______,   _______,    _______,     _______,   _______,    _______,    _______,    _______,                _______,
     _______,    _______,    _______,    _______,    _______,    _______,     _______,   _______,    _______,     _______,   _______,    _______,                            _______,    _______,
     _______,    _______,    _______,    _______,    _______,    _______,     _______,   MO(_SYS),   RGB_SPD,     RGB_SPI,   _______,                            _______,    RM_VALU,    _______,
-    _______,    _______,    _______,    _______,                                                                            _______,    MO(_MACFUN),_______,    RM_NEXT,    RM_VALD,    RM_HUEU),
+    _______,    _______,    _______,    _______,                                                                            _______,    MO(_MACFN), _______,    RM_NEXT,    RM_VALD,    RM_HUEU),
 
 // layer Win
 [_WIN] = LAYOUT_75_ansi(
 //  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc       Ins         Del
     KC_ESC,     KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,     KC_PSCR,    KC_INS,     KC_DEL,
     KC_GRV,     KC_1,       KC_2,       KC_3,       KC_4,       KC_5,       KC_6,       KC_7,       KC_8,       KC_9,       KC_0,       KC_MINS,    KC_EQL,                 KC_BSPC,    KC_HOME,
-    KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,       KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       EU_ARNG,    KC_QUOT,                KC_BSLS,    KC_END,
-    MO(_SYMWIN),KC_A,       KC_S,       KC_D,       KC_F,       KC_G,       KC_H,       KC_J,       KC_K,       KC_L,       EU_ODIA,    EU_ADIA,                            KC_ENT,     KC_PGUP,
-    KC_LSFT,    KC_Z,       KC_X,       KC_C,       KC_V,       KC_B,       KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_QUES,                KC_RSFT,                KC_UP,      KC_PGDN,
-    KC_LCTL,    KC_LALT,    KC_LGUI,    KC_SPC,                                                                             KC_RALT,    MO(_WINFUN),KC_MEH,     KC_LEFT,    KC_DOWN,    KC_RGHT),
+    KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,       KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       EU_ARNG,    KC_QUOT,    KC_BSLS,                KC_END,
+    MO(_WINSM), KC_A,       KC_S,       KC_D,       KC_F,       KC_G,       KC_H,       KC_J,       KC_K,       KC_L,       EU_ODIA,    EU_ADIA,                            KC_ENT,     KC_PGUP,
+    KC_LSFT,    KC_Z,       KC_X,       KC_C,       KC_V,       KC_B,       KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_QUES,                            KC_RSFT,    KC_UP,      KC_PGDN,
+    KC_LCTL,    KC_LALT,    KC_LGUI,    KC_SPC,                                                                             KC_RALT,    MO(_WINFN), KC_MEH,     KC_LEFT,    KC_DOWN,    KC_RGHT),
 
 // layer Win Funnction
 [_WINFUN] = LAYOUT_75_ansi(
 //  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc       Ins         Del
     DEV_RESET,  KC_BRID,    KC_BRIU,    KC_CALC,    _______,    _______,    _______,    KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MUTE,    KC_VOLD,    KC_VOLU,    _______,    BAT_SHOW,   BAT_NUM,
-    _______,    LNK_BLE1,   LNK_BLE2,   LNK_BLE3,   LNK_RF,     _______,    _______,    _______,    _______,    _______,    _______,    _______,	  _______,    _______,                _______,
+    _______,    LNK_BLE1,   LNK_BLE2,   LNK_BLE3,   LNK_RF,     _______,    _______,    _______,    _______,    _______,    _______,    _______,	  _______,                _______,    _______,
     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,                _______,
-    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,                _______,                _______,
+    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,                            _______,    _______,
     _______,    _______,    _______,    _______,    _______,    _______,    _______,    MO(_SYS),   RGB_SPD,    RGB_SPI,    _______,                            _______,    RM_VALU,    _______,
-    _______,    _______,    _______,    _______,                                                                            _______,    MO(_WINFUN),_______,    RM_NEXT,    RM_VALD,    RM_HUEU),
+    _______,    _______,    _______,    _______,                                                                            _______,    MO(_WINFN), _______,    RM_NEXT,    RM_VALD,    RM_HUEU),
+
+// layer Mac Sym
+[_MACSM] = LAYOUT_75_ansi(
+//  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc       Ins         Del
+    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,
+    KC_TILD,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_PERC,    KC_CIRC,    KC_AMPR,    KC_ASTR,    KC_LPRN,    KC_RPRN,    KC_UNDS,    KC_PLUS,                _______,    _______,
+    _______,    KC_QUES,    KC_DQUO,    KC_LT,      KC_GT,      KC_PLUS,    KC_UNDS,    KC_LBRC,    KC_RBRC,    KC_BSLS,    KC_COLN,    EU_DEG,     _______,    _______,                _______,
+    _______,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_EQL,     KC_MINS,    KC_LPRN,    KC_RPRN,    KC_SLSH,    KC_SCLN,    EU_SECT,                            _______,    _______,
+    _______,    KC_AMPR,    KC_QUOT,    KC_CIRC,    EU_EURO,    KC_PERC,    KC_ASTR,    KC_LCBR,    KC_RCBR,    KC_PIPE,    EU_DIAE,                            _______,    _______,    _______,
+    _______,    _______,    _______,    _______,                                                                            _______,    _______,    _______,    _______,	  _______,    _______),
+
+// layer Win Symbols
+[_WINSM] = LAYOUT_75_ansi(
+//  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc       Ins         Del
+    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,
+    KC_TILD,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_PERC,    KC_CIRC,    KC_AMPR,    KC_ASTR,    KC_LPRN,    KC_RPRN,    KC_UNDS,    KC_PLUS,                _______,    _______,
+    _______,    KC_QUES,    KC_DQUO,    KC_LT,      KC_GT,      KC_PLUS,    KC_UNDS,    KC_LBRC,    KC_RBRC,    KC_BSLS,    KC_COLN,    EU_DEG,     _______,    _______,                _______,
+    _______,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_EQL,     KC_MINS,    KC_LPRN,    KC_RPRN,    KC_SLSH,    KC_SCLN,    EU_SECT,                            _______,    _______,
+    _______,    KC_AMPR,    KC_QUOT,    KC_CIRC,    EU_EURO,    KC_PERC,    KC_ASTR,    KC_LCBR,    KC_RCBR,    KC_PIPE,    EU_DIAE,                            _______,    _______,    _______,
+    _______,    _______,    _______,    _______,                                                                            _______,    _______,    _______,    _______,	  _______,    _______),
+
 
 // layer System
 [_SYS] = LAYOUT_75_ansi(
-//  `           1           2           3           4           5           6           7           8           9           0           -           =          PrtSc        Ins         Del
-    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,   _______,     _______,    _______,
-    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,   _______,                 _______,
-    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    SLEEP_MODE,_______,                 _______,
-    _______,    _______,    KB_SLP,     DB_TOGG,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,               _______,                 _______,
-    _______,    LINK_TO,    _______,    RGB_TEST,   _______,    _______,    _______,    MO(_SYS),   SIDE_SPD,   SIDE_SPI,   _______,                           _______,     SIDE_VAI,   _______,
-    _______,    _______,    _______,    _______,                                                                            _______,    _______,    _______,   SIDE_MOD,    SIDE_VAD,   SIDE_HUI),
-
-// layer Mac Sym
-[_SYMMAC] = LAYOUT_75_ansi(
-//  `           1           2           3           4           5           6           7           8           9           0            -           =           PrtSc       Ins         Del
-    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,   _______,     _______,    _______,
-    KC_TILD,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_PERC,    KC_CIRC,    KC_AMPR,    KC_ASTR,    KC_LPRN,    KC_RPRN,     KC_UNDS,    KC_PLUS,    _______,                _______,
-    _______,    KC_QUES,    KC_DQUO,    KC_LT,      KC_GT,      KC_PLUS,    KC_UNDS,    KC_LBRC,    KC_RBRC,    KC_BSLS,    KC_COLN,     EU_DEG,     _______,    _______,                _______,
-    _______,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_EQL,     KC_MINS,    KC_LPRN,    KC_RPRN,    KC_SLSH,    KC_SCLN,     EU_SECT,                _______,                _______,
-    _______,    KC_AMPR,    KC_QUOT,    KC_CIRC,    EU_EURO,    KC_PERC,    KC_ASTR,    KC_LCBR,    KC_RCBR,    KC_PIPE,    EU_DIAE,                             _______,    _______,    _______,
-    _______,    _______,    _______,    _______,                                                                            _______,     _______,    _______,    _______,	   _______,    _______),
-
-// layer Win Symbols
-[_SYMWIN] = LAYOUT_75_ansi(
-//  `           1           2           3           4           5           6           7           8           9           0            -           =           PrtSc       Ins         Del
-    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,   _______,     _______,    _______,
-    KC_TILD,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_PERC,    KC_CIRC,    KC_AMPR,    KC_ASTR,    KC_LPRN,    KC_RPRN,     KC_UNDS,    KC_PLUS,    _______,                _______,
-    _______,    KC_QUES,    KC_DQUO,    KC_LT,      KC_GT,      KC_PLUS,    KC_UNDS,    KC_LBRC,    KC_RBRC,    KC_BSLS,    KC_COLN,     EU_DEG,     _______,    _______,                _______,
-    _______,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_EQL,     KC_MINS,    KC_LPRN,    KC_RPRN,    KC_SLSH,    KC_SCLN,     EU_SECT,                _______,                _______,
-    _______,    KC_AMPR,    KC_QUOT,    KC_CIRC,    EU_EURO,    KC_PERC,    KC_ASTR,    KC_LCBR,    KC_RCBR,    KC_PIPE,    EU_DIAE,                             _______,    _______,    _______,
-    _______,    _______,    _______,    _______,                                                                            _______,     _______,    _______,    _______,	   _______,    _______),
+//  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc        Ins         Del
+    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,     _______,    _______,
+    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,                 _______,    _______,
+    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    SLEEP_MODE, _______,                 _______,
+    _______,    _______,    KB_SLP,     DB_TOGG,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,                             _______,    _______,
+    _______,    LINK_TO,    _______,    RGB_TEST,   _______,    _______,    _______,    MO(_SYS),   SIDE_SPD,   SIDE_SPI,   _______,                            _______,     SIDE_VAI,   _______,
+    _______,    _______,    _______,    _______,                                                                            _______,    _______,    _______,    SIDE_MOD,    SIDE_VAD,   SIDE_HUI),
 };
