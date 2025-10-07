@@ -156,7 +156,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // layer Mac Sym
 [_SYMMAC] = LAYOUT_75_ansi(
 //  `           1           2           3           4           5           6           7           8           9           0            -           =           PrtSc       Ins         Del
-    DEV_RESET,  KC_BRID,    KC_BRIU,    KC_MCTL,    MAC_SEARCH, MAC_VOICE,  MAC_DND,    KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MUTE,     KC_VOLD,    KC_VOLU,    MAC_PRTA,   _______,    _______,
+    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,   _______,     _______,    _______,
     KC_TILD,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_PERC,    KC_CIRC,    KC_AMPR,    KC_ASTR,    KC_LPRN,    KC_RPRN,     KC_UNDS,    KC_PLUS,    _______,                _______,
     _______,    KC_QUES,    KC_DQUO,    KC_LT,      KC_GT,      KC_PLUS,    KC_UNDS,    KC_LBRC,    KC_RBRC,    KC_BSLS,    KC_COLN,     EU_DEG,     _______,    _______,                _______,
     _______,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_EQL,     KC_MINS,    KC_LPRN,    KC_RPRN,    KC_SLSH,    KC_SCLN,     EU_SECT,                _______,                _______,
@@ -166,7 +166,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // layer Win Symbols
 [_SYMWIN] = LAYOUT_75_ansi(
 //  `           1           2           3           4           5           6           7           8           9           0            -           =           PrtSc       Ins         Del
-    DEV_RESET,  KC_BRID,    KC_BRIU,    KC_CALC,    _______,    _______,    _______,    KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MUTE,     KC_VOLD,    KC_VOLU,    _______,    _______,    _______,
+    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,   _______,     _______,    _______,
     KC_TILD,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_PERC,    KC_CIRC,    KC_AMPR,    KC_ASTR,    KC_LPRN,    KC_RPRN,     KC_UNDS,    KC_PLUS,    _______,                _______,
     _______,    KC_QUES,    KC_DQUO,    KC_LT,      KC_GT,      KC_PLUS,    KC_UNDS,    KC_LBRC,    KC_RBRC,    KC_BSLS,    KC_COLN,     EU_DEG,     _______,    _______,                _______,
     _______,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_EQL,     KC_MINS,    KC_LPRN,    KC_RPRN,    KC_SLSH,    KC_SCLN,     EU_SECT,                _______,                _______,
