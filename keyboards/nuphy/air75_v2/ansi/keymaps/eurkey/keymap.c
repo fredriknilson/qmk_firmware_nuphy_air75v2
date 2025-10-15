@@ -156,9 +156,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc       Ins         Del
     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,
     KC_TILD,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_PERC,    KC_CIRC,    KC_AMPR,    KC_ASTR,    KC_LPRN,    KC_RPRN,    KC_UNDS,    KC_PLUS,                _______,    _______,
-    _______,    KC_GRAVE,   KC_LABK,    KC_RABK,    KC_MINUS,   KC_PIPE,    KC_CIRC,    KC_LCBR,    KC_RCBR,    KC_DLR,     KC_DOT,     XXXXXXX,    XXXXXXX,    XXXXXXX,                _______,
+    _______,    KC_GRAVE,   KC_LABK,    KC_RABK,    KC_MINUS,   KC_PIPE,    KC_CIRC,    KC_LCBR,    KC_RCBR,    KC_COLN,    KC_DLR,     XXXXXXX,    XXXXXXX,    XXXXXXX,                _______,
     _______,    KC_EXLM,    KC_ASTR,    KC_SLASH,   KC_EQUAL,   KC_AMPR,    KC_HASH,    KC_LPRN,    KC_RPRN,    KC_SCLN,    KC_DQUO,    XXXXXXX,                            _______,    _______,
-    _______,    KC_TILD,    KC_PLUS,    KC_BSLS,    KC_UNDS,    KC_PERC,    KC_AT,      KC_LBRC,    KC_RBRC,    KC_COLN,    KC_QUOT,                            _______,    _______,    _______,
+    _______,    KC_TILD,    KC_PLUS,    KC_BSLS,    KC_UNDS,    KC_PERC,    KC_AT,      KC_LBRC,    KC_RBRC,    KC_DOT,     KC_QUOT,                            _______,    _______,    _______,
     _______,    _______,    _______,    _______,                                                                            _______,    _______,    _______,    _______,	  _______,    _______),
 
 // layer Win Symbols
@@ -166,9 +166,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc       Ins         Del
     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,
     KC_TILD,    KC_EXLM,    KC_AT,      KC_HASH,    KC_DLR,     KC_PERC,    KC_CIRC,    KC_AMPR,    KC_ASTR,    KC_LPRN,    KC_RPRN,    KC_UNDS,    KC_PLUS,                _______,    _______,
-    _______,    KC_GRAVE,   KC_LABK,    KC_RABK,    KC_MINUS,   KC_PIPE,    KC_CIRC,    KC_LCBR,    KC_RCBR,    KC_DLR,     KC_DOT,     XXXXXXX,    XXXXXXX,    XXXXXXX,                _______,
+    _______,    KC_GRAVE,   KC_LABK,    KC_RABK,    KC_MINUS,   KC_PIPE,    KC_CIRC,    KC_LCBR,    KC_RCBR,    KC_COLN,    KC_DLR,     XXXXXXX,    XXXXXXX,    XXXXXXX,                _______,
     _______,    KC_EXLM,    KC_ASTR,    KC_SLASH,   KC_EQUAL,   KC_AMPR,    KC_HASH,    KC_LPRN,    KC_RPRN,    KC_SCLN,    KC_DQUO,    XXXXXXX,                            _______,    _______,
-    _______,    KC_TILD,    KC_PLUS,    KC_BSLS,    KC_UNDS,    KC_PERC,    KC_AT,      KC_LBRC,    KC_RBRC,    KC_COLN,    KC_QUOT,                            _______,    _______,    _______,
+    _______,    KC_TILD,    KC_PLUS,    KC_BSLS,    KC_UNDS,    KC_PERC,    KC_AT,      KC_LBRC,    KC_RBRC,    KC_DOT,     KC_QUOT,                            _______,    _______,    _______,
     _______,    _______,    _______,    _______,                                                                            _______,    _______,    _______,    _______,	  _______,    _______),
 
 
