@@ -52,43 +52,6 @@ enum layers {
 #define HM_ODIA RSFT_T(EU_ODIA) // Shift + Ö
 
 
-// -------------------- Tab dance --------------------
-
-enum {
-    TD_1 = 0,
-    TD_2,
-    TD_3,
-    TD_4,
-    TD_Z,
-    TD_X,
-    TD_C,
-    TD_V,
-    TD_B,
-};
-
-tap_dance_action_t tap_dance_actions[] = {
-    [TD_1] = ACTION_TAP_DANCE_DOUBLE(KC_1, LCTL(KC_1)),
-    [TD_2] = ACTION_TAP_DANCE_DOUBLE(KC_2, LCTL(KC_2)),
-    [TD_3] = ACTION_TAP_DANCE_DOUBLE(KC_3, LCTL(KC_3)),
-    [TD_4] = ACTION_TAP_DANCE_DOUBLE(KC_4, LCTL(KC_4)),
-    [TD_Z] = ACTION_TAP_DANCE_DOUBLE(KC_Z, LGUI(KC_Z)),
-    [TD_X] = ACTION_TAP_DANCE_DOUBLE(KC_X, LGUI(KC_X)),
-    [TD_C] = ACTION_TAP_DANCE_DOUBLE(KC_C, LGUI(KC_C)),
-    [TD_V] = ACTION_TAP_DANCE_DOUBLE(KC_V, LGUI(KC_V)),
-    [TD_B] = ACTION_TAP_DANCE_DOUBLE(KC_B, LGUI(LSFT(KC_V))),
-};
-
-#define TD_1 TD(TD_1)
-#define TD_2 TD(TD_2)
-#define TD_3 TD(TD_3)
-#define TD_4 TD(TD_4)
-#define TD_Z TD(TD_Z)
-#define TD_X TD(TD_X)
-#define TD_C TD(TD_C)
-#define TD_V TD(TD_V)
-#define TD_B TD(TD_B)
-
-
 // -------------------- Custom keycode handling --------------------
 
 #define KC_ACUT RALT(KC_QUOTE) // ´
@@ -136,11 +99,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_MAC] = LAYOUT_75_ansi(
 //  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc       Ins         Del
     KC_ESC,     KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,     SYS_PRT,    KC_INS,     KC_DEL,
-    KC_GRV,     TD_1,       TD_2,       TD_3,       TD_4,       KC_5,       KC_6,       KC_7,       KC_8,       KC_9,       KC_0,       KC_MINS,    KC_EQL,                 KC_BSPC,    KC_HOME,
     KC_GRV,     KC_1,       KC_2,       KC_3,       KC_4,       KC_5,       KC_6,       KC_7,       KC_8,       KC_9,       KC_0,       KC_MINS,    KC_EQL,                 KC_BSPC,    KC_HOME,
     KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,       KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       EU_ARNG,    KC_QUOT,    KC_SLSH,                KC_END,
     MO(_MACSM), KC_A,       KC_S,       KC_D,       KC_F,       KC_G,       KC_H,       KC_J,       KC_K,       KC_L,       EU_ODIA,    EU_ADIA,                            KC_ENT,     KC_PGUP,
-    KC_LSFT,    TD_Z,       TD_X,       TD_C,       TD_V,       TD_B,       KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_QUES,                            KC_RSFT,    KC_UP,      KC_PGDN,
     KC_LSFT,    KC_Z,       KC_X,       KC_C,       KC_V,       KC_B,       KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_QUES,                            KC_RSFT,    KC_UP,      KC_PGDN,
     KC_LCTL,    KC_LALT,    KC_LGUI,    LT(_MACSM, KC_SPC),                                                                 KC_RALT,    MO(_MACFN), KC_MEH,     KC_LEFT,    KC_DOWN,    KC_RGHT),
 
