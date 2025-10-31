@@ -109,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_MACFN] = LAYOUT_75_ansi(
 //  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc       Ins         Del
     DEV_RESET,  KC_BRID,    KC_BRIU,    KC_MCTL,    MAC_SEARCH, MAC_VOICE,   MAC_DND,   KC_MPRV,    KC_MPLY,     KC_MNXT,   KC_MUTE,    KC_VOLD,    KC_VOLU,    MAC_PRTA,   BAT_SHOW,   BAT_NUM,
-    _______,    LNK_BLE1,   LNK_BLE2,   LNK_BLE3,   LNK_RF,     _______,     _______,   _______,    _______,     _______,   _______,    _______,	  _______,                _______,    _______,
+    _______,    LNK_BLE1,   LNK_BLE2,   LNK_BLE3,   LNK_RF,     _______,     _______,   _______,    _______,     _______,   _______,    _______,	_______,                _______,    _______,
     _______,    _______,    _______,    _______,    _______,    _______,     _______,   _______,    _______,     _______,   _______,    _______,    _______,    _______,                _______,
     _______,    _______,    _______,    _______,    _______,    _______,     _______,   _______,    _______,     _______,   _______,    _______,                            _______,    _______,
     _______,    _______,    _______,    _______,    _______,    _______,     _______,   MO(_SYS),   RGB_SPD,     RGB_SPI,   _______,                            _______,    RM_VALU,    _______,
@@ -129,9 +129,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_WINFN] = LAYOUT_75_ansi(
 //  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc       Ins         Del
     DEV_RESET,  KC_BRID,    KC_BRIU,    KC_CALC,    _______,    _______,    _______,    KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MUTE,    KC_VOLD,    KC_VOLU,    _______,    BAT_SHOW,   BAT_NUM,
-    _______,    LNK_BLE1,   LNK_BLE2,   LNK_BLE3,   LNK_RF,     _______,    _______,    _______,    _______,    _______,    _______,    _______,	  _______,                _______,    _______,
+    _______,    LNK_BLE1,   LNK_BLE2,   LNK_BLE3,   LNK_RF,     _______,    _______,    _______,    _______,    _______,    _______,    _______,	_______,                _______,    _______,
     _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,                _______,
-    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,                            _______,    _______,
+    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,                            _______ ,   _______,
     _______,    _______,    _______,    _______,    _______,    _______,    _______,    MO(_SYS),   RGB_SPD,    RGB_SPI,    _______,                            _______,    RM_VALU,    _______,
     _______,    _______,    _______,    _______,                                                                            _______,    MO(_WINFN), _______,    RM_NEXT,    RM_VALD,    RM_HUEU),
 
@@ -143,7 +143,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,    KC_GRAVE,   KC_LABK,    KC_RABK,    KC_MINUS,   KC_PIPE,    KC_CIRC,    KC_LCBR,    KC_RCBR,    KC_COLN,    KC_DLR,     XXXXXXX,    XXXXXXX,    XXXXXXX,                _______,
     _______,    KC_EXLM,    KC_ASTR,    KC_SLASH,   KC_EQUAL,   KC_AMPR,    KC_HASH,    KC_LPRN,    KC_RPRN,    KC_SCLN,    KC_DQUO,    XXXXXXX,                            _______,    _______,
     _______,    KC_TILD,    KC_PLUS,    KC_BSLS,    KC_UNDS,    KC_PERC,    KC_AT,      KC_LBRC,    KC_RBRC,    KC_DOT,     KC_QUOT,                            _______,    _______,    _______,
-    _______,    _______,    _______,    _______,                                                                            _______,    _______,    _______,    _______,	  _______,    _______),
+    _______,    _______,    _______,    _______,                                                                            _______,    _______,    _______,    _______,	_______,    _______),
 
 // layer Win Symbols
 [_WINSM] = LAYOUT_75_ansi(
@@ -153,7 +153,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,    KC_GRAVE,   KC_LABK,    KC_RABK,    KC_MINUS,   KC_PIPE,    KC_CIRC,    KC_LCBR,    KC_RCBR,    KC_COLN,    KC_DLR,     XXXXXXX,    XXXXXXX,    XXXXXXX,                _______,
     _______,    KC_EXLM,    KC_ASTR,    KC_SLASH,   KC_EQUAL,   KC_AMPR,    KC_HASH,    KC_LPRN,    KC_RPRN,    KC_SCLN,    KC_DQUO,    XXXXXXX,                            _______,    _______,
     _______,    KC_TILD,    KC_PLUS,    KC_BSLS,    KC_UNDS,    KC_PERC,    KC_AT,      KC_LBRC,    KC_RBRC,    KC_DOT,     KC_QUOT,                            _______,    _______,    _______,
-    _______,    _______,    _______,    _______,                                                                            _______,    _______,    _______,    _______,	  _______,    _______),
+    _______,    _______,    _______,    _______,                                                                            _______,    _______,    _______,    _______,	_______,    _______),
 
 
 // layer System
