@@ -259,7 +259,7 @@ void dance_4_finished(tap_dance_state_t *state, void *user_data) {
     switch (dance_state[4].step) {
         case SINGLE_TAP: register_code16(KC_T); break;
         case DOUBLE_TAP: register_code16(KC_T); register_code16(KC_T); break;
-        case DOUBLE_HOLD: layer_move(5); break;
+        case DOUBLE_HOLD: layer_move(_TMK); break;
         case DOUBLE_SINGLE_TAP: tap_code16(KC_T); register_code16(KC_T);
     }
 }
@@ -533,11 +533,12 @@ tap_dance_action_t tap_dance_actions[] = {
 #define TD_2 TD(DANCE_1)
 #define TD_3 TD(DANCE_2)
 #define TD_4 TD(DANCE_3)
-#define TD_T TD(DANCE_4)
+#define TD_T0 TD(DANCE_4)
 #define TD_Z TD(DANCE_5)
 #define TD_X TD(DANCE_6)
 #define TD_C TD(DANCE_7)
 #define TD_V TD(DANCE_8)
+#define TD_T8 TD(DANCE_11)
 
 
 // -------------------- Custom keycode handling --------------------
@@ -574,7 +575,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc       Ins         Del
     KC_ESC,     KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,     SYS_PRT,    KC_INS,     KC_DEL,
     KC_GRV,     TD_1,       TD_2,       TD_3,       TD_4,       KC_5,       KC_6,       KC_7,       KC_8,       KC_9,       KC_0,       KC_MINS,    KC_EQL,                 KC_BSPC,    KC_HOME,
-    KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       TD_T,       KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       EU_ARNG,    KC_QUOT,    KC_SLSH,                KC_END,
+    KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       TD_T0,      KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       EU_ARNG,    KC_QUOT,    KC_SLSH,                KC_END,
     MO(_MACSM), KC_A,       KC_S,       KC_D,       KC_F,       KC_G,       KC_H,       KC_J,       KC_K,       KC_L,       EU_ODIA,    EU_ADIA,                            KC_ENT,     KC_PGUP,
     KC_LSFT,    TD_Z,       TD_X,       TD_C,       TD_V,       KC_B,       KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_QUES,                            KC_RSFT,    KC_UP,      KC_PGDN,
     KC_LCTL,    KC_LALT,    KC_LGUI,    LT(_MACSM, KC_SPC),                                                                 KC_RALT,    MO(_MACFN), KC_MEH,     KC_LEFT,    KC_DOWN,    KC_RGHT),
@@ -645,7 +646,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc        Ins         Del
     KC_ESC,     KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,     SYS_PRT,    KC_INS,     KC_DEL,
     KC_GRV,     TD_1,       TD_2,       TD_3,       TD_4,       KC_5,       KC_6,       KC_7,       KC_8,       KC_9,       KC_0,       KC_MINS,    KC_EQL,                 KC_BSPC,    KC_HOME,
-    KC_TAB,     KC_Q,       KC_W,       KC_J,       KC_R,       TD_T,       KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       EU_ARNG,    KC_QUOT,    KC_SLSH,                KC_END,
+    KC_TAB,     KC_Q,       KC_W,       KC_J,       KC_R,       TD_T8,      KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       EU_ARNG,    KC_QUOT,    KC_SLSH,                KC_END,
     MO(_MACSM), KC_A,       KC_S,       KC_D,       KC_F,       KC_G,       KC_H,       KC_N,       KC_E,       KC_L,       EU_ODIA,    EU_ADIA,                            KC_ENT,     KC_PGUP,
     KC_LSFT,    TD_Z,       TD_X,       TD_C,       TD_V,       KC_B,       KC_K,       KC_M,       KC_COMM,    KC_DOT,     KC_QUES,                            KC_RSFT,    KC_UP,      KC_PGDN,
     KC_LCTL,    KC_LALT,    KC_LGUI,    LT(_MACSM, KC_SPC),                                                                 KC_RALT,    MO(_MACFN), KC_MEH,     KC_LEFT,    KC_DOWN,    KC_RGHT),
