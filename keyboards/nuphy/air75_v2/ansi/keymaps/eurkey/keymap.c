@@ -586,7 +586,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     DEV_RESET,  KC_BRID,    KC_BRIU,    KC_MCTL,    MAC_SEARCH, MAC_VOICE,   MAC_DND,   KC_MPRV,    KC_MPLY,     KC_MNXT,   KC_MUTE,    KC_VOLD,    KC_VOLU,    MAC_PRTA,   BAT_SHOW,   BAT_NUM,
     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,   XXXXXXX,    XXXXXXX,     XXXXXXX,   XXXXXXX,    XXXXXXX,	  XXXXXXX,                XXXXXXX,    XXXXXXX,
     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,   XXXXXXX,    XXXXXXX,     XXXXXXX,   XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                XXXXXXX,
-    XXXXXXX,    KC_VOLD,    KC_MUTE,    KC_VOLU,    KC_MPRV,    KC_MPLY,     KC_MNXT,   XXXXXXX,    XXXXXXX,     XXXXXXX,   XXXXXXX,    XXXXXXX,                            XXXXXXX,    XXXXXXX,
+    KC_MUTE,    KC_VOLD,    KC_VOLU,    KC_MPRV,    KC_MPLY,    KC_MNXT,    XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,   XXXXXXX,    XXXXXXX,                            XXXXXXX,    XXXXXXX,
     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,   MO(_SYS),   RGB_SPD,     RGB_SPI,   XXXXXXX,                            XXXXXXX,    RM_VALU,    XXXXXXX,
     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                                                                            XXXXXXX,    MO(_MACFN), XXXXXXX,    RM_NEXT,    RM_VALD,    RM_HUEU),
 
@@ -606,7 +606,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     DEV_RESET,  KC_BRID,    KC_BRIU,    KC_CALC,    XXXXXXX,    XXXXXXX,    XXXXXXX,    KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MUTE,    KC_VOLD,    KC_VOLU,    XXXXXXX,    BAT_SHOW,   BAT_NUM,
     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,	  XXXXXXX,                XXXXXXX,    XXXXXXX,
     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                XXXXXXX,
-    XXXXXXX,    KC_VOLD,    KC_MUTE,    KC_VOLU,    KC_MPRV,    KC_MPLY,     KC_MNXT,   XXXXXXX,    XXXXXXX,     XXXXXXX,   XXXXXXX,    XXXXXXX,                            XXXXXXX,    XXXXXXX,
+    KC_MUTE,    KC_VOLD,    KC_VOLU,    KC_MPRV,    KC_MPLY,    KC_MNXT,    XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,   XXXXXXX,    XXXXXXX,                            XXXXXXX,    XXXXXXX,
     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    MO(_SYS),   RGB_SPD,    RGB_SPI,    XXXXXXX,                            XXXXXXX,    RM_VALU,    XXXXXXX,
     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                                                                            XXXXXXX,    MO(_WINFN), XXXXXXX,    RM_NEXT,    RM_VALD,    RM_HUEU),
 
