@@ -30,7 +30,7 @@ enum layers {
     _MACSM,
     _WINSM,
     _SYS,
-    _TMK,
+    _CDH,
 };
 
 // Layer Masks
@@ -259,7 +259,7 @@ void dance_4_finished(tap_dance_state_t *state, void *user_data) {
     switch (dance_state[4].step) {
         case SINGLE_TAP: register_code16(KC_T); break;
         case DOUBLE_TAP: register_code16(KC_T); register_code16(KC_T); break;
-        case DOUBLE_HOLD: layer_move(_TMK); break;
+        case DOUBLE_HOLD: layer_move(_CDH); break;
         case DOUBLE_SINGLE_TAP: tap_code16(KC_T); register_code16(KC_T);
     }
 }
@@ -618,7 +618,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     DEV_RESET,  KC_BRID,    KC_BRIU,    KC_CALC,    XXXXXXX,    XXXXXXX,    XXXXXXX,    KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MUTE,    KC_VOLD,    KC_VOLU,    XXXXXXX,    BAT_SHOW,   BAT_NUM,
     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,	XXXXXXX,                XXXXXXX,    XXXXXXX,
     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                XXXXXXX,
-    KC_MUTE,    KC_VOLD,    KC_VOLU,    KC_MPRV,    KC_MPLY,    KC_MNXT,    XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,   XXXXXXX,    XXXXXXX,                            XXXXXXX,    XXXXXXX,
+    KC_MUTE,    KC_VOLD,    KC_VOLU,    KC_MPRV,    KC_MPLY,    KC_MNXT,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                            XXXXXXX,    XXXXXXX,
     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    MO(_SYS),   RGB_SPD,    RGB_SPI,    XXXXXXX,                            XXXXXXX,    RM_VALU,    XXXXXXX,
     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                                                                            XXXXXXX,    MO(_WINFN), XXXXXXX,    RM_NEXT,    RM_VALD,    RM_HUEU),
 
@@ -640,7 +640,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,    KC_GRAVE,   KC_LABK,    KC_RABK,    KC_MINUS,   KC_PIPE,    KC_DLR,     KC_LCBR,    KC_RCBR,    KC_COLN,    KC_CIRC,    XXXXXXX,    XXXXXXX,    XXXXXXX,                _______,
     _______,    KC_EXLM,    KC_ASTR,    KC_SLASH,   KC_EQUAL,   KC_AMPR,    KC_HASH,    KC_LPRN,    KC_RPRN,    KC_SCLN,    KC_DQUO,    XXXXXXX,                            _______,    _______,
     _______,    KC_TILD,    KC_PLUS,    KC_BSLS,    KC_UNDS,    KC_PERC,    KC_AT,      KC_LBRC,    KC_RBRC,    KC_DOT,     KC_QUOT,                            _______,    _______,    _______,
-    _______,    _______,    _______,    _______,                                                                            _______,    _______,    _______,    _______,	  _______,    _______),
+    _______,    _______,    _______,    _______,                                                                            _______,    _______,    _______,    _______,	_______,    _______),
 
 
 // layer System
@@ -653,13 +653,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,    LINK_TO,    _______,    RGB_TEST,   _______,    _______,    _______,    MO(_SYS),   SIDE_SPD,   SIDE_SPI,   _______,                            _______,     SIDE_VAI,   _______,
     _______,    _______,    _______,    _______,                                                                            _______,    _______,    _______,    SIDE_MOD,    SIDE_VAD,   SIDE_HUI),
 
-// layer Tarmak
-[_TMK] = LAYOUT_75_ansi(
+// // layer Tarmak
+// [_CDH] = LAYOUT_75_ansi(
+// //  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc        Ins         Del
+//     KC_ESC,     KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,     SYS_PRT,    KC_INS,     KC_DEL,
+//     KC_GRV,     TD_1,       TD_2,       TD_3,       TD_4,       KC_5,       KC_6,       KC_7,       KC_8,       KC_9,       KC_0,       KC_MINS,    KC_EQL,                 KC_BSPC,    KC_HOME,
+//     KC_TAB,     KC_Q,       KC_W,       KC_J,       KC_R,       TD_T8,      KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       EU_ARNG,    KC_QUOT,    KC_SLSH,                KC_END,
+//     MO(_MACSM), KC_A,       KC_S,       KC_D,       KC_F,       KC_G,       KC_M,       KC_N,       KC_E,       KC_L,       EU_ODIA,    EU_ADIA,                            KC_ENT,     KC_PGUP,
+//     KC_LSFT,    TD_Z,       TD_X,       TD_C,       TD_V,       KC_B,       KC_K,       KC_H,       KC_COMM,    KC_DOT,     KC_QUES,                            KC_RSFT,    KC_UP,      KC_PGDN,
+//     KC_LCTL,    KC_LALT,    KC_LGUI,    LT(_MACSM, KC_SPC),                                                                 KC_RALT,    MO(_MACFN), KC_MEH,     KC_LEFT,    KC_DOWN,    KC_RGHT),
+
+// layer Colemak DH
+[_CDH] = LAYOUT_75_ansi(
 //  `           1           2           3           4           5           6           7           8           9           0           -           =           PrtSc        Ins         Del
     KC_ESC,     KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,     SYS_PRT,    KC_INS,     KC_DEL,
     KC_GRV,     TD_1,       TD_2,       TD_3,       TD_4,       KC_5,       KC_6,       KC_7,       KC_8,       KC_9,       KC_0,       KC_MINS,    KC_EQL,                 KC_BSPC,    KC_HOME,
-    KC_TAB,     KC_Q,       KC_W,       KC_J,       KC_R,       TD_T8,      KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       EU_ARNG,    KC_QUOT,    KC_SLSH,                KC_END,
-    MO(_MACSM), KC_A,       KC_S,       KC_D,       KC_F,       KC_G,       KC_M,       KC_N,       KC_E,       KC_L,       EU_ODIA,    EU_ADIA,                            KC_ENT,     KC_PGUP,
-    KC_LSFT,    TD_Z,       TD_X,       TD_C,       TD_V,       KC_B,       KC_K,       KC_H,       KC_COMM,    KC_DOT,     KC_QUES,                            KC_RSFT,    KC_UP,      KC_PGDN,
+    KC_TAB,     KC_Q,       KC_W,       KC_F,       KC_P,       KC_B,       KC_J,       KC_L,       KC_U,       KC_Y,       EU_ODIA,    EU_ARNG,    KC_QUOT,    KC_SLSH,                KC_END,
+    MO(_MACSM), KC_A,       KC_R,       KC_S,       TD_T8,      KC_G,       KC_M,       KC_N,       KC_E,       KC_I,       KC_O,       EU_ADIA,                            KC_ENT,     KC_PGUP,
+    KC_LSFT,    TD_Z,       TD_X,       TD_C,       KC_D,       TD_V,       KC_K,       KC_H,       KC_COMM,    KC_DOT,     KC_QUES,                            KC_RSFT,    KC_UP,      KC_PGDN,
     KC_LCTL,    KC_LALT,    KC_LGUI,    LT(_MACSM, KC_SPC),                                                                 KC_RALT,    MO(_MACFN), KC_MEH,     KC_LEFT,    KC_DOWN,    KC_RGHT),
 };
