@@ -589,7 +589,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRV,     TD_1,       TD_2,       TD_3,       TD_4,       KC_5,       KC_6,       KC_7,       KC_8,       KC_9,       KC_0,       KC_MINS,    KC_EQL,                 KC_BSPC,    KC_HOME,
     KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       TD_T0,      KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       EU_ARNG,    KC_QUOT,    KC_SLSH,                KC_END,
     MO(_MACSM), HM_A,       HM_S,       HM_D,       HM_F,       KC_G,       KC_H,       HM_J,       HM_K,       HM_L,       HM_ODIA,    EU_ADIA,                            KC_ENT,     KC_PGUP,
-    KC_LSFT,    TD_Z,       TD_X,       TD_C,       TD_V,       KC_B,       KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_QUES,                            KC_RSFT,    KC_UP,      KC_PGDN,
+    KC_LSFT,    KC_Z,       TD_X,       TD_C,       TD_V,       KC_B,       KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_QUES,                            KC_RSFT,    KC_UP,      KC_PGDN,
     KC_LCTL,    KC_LALT,    KC_LGUI,    LT(_MACSM, KC_SPC),                                                                 KC_RALT,    MO(_MACFN), KC_MEH,     KC_LEFT,    KC_DOWN,    KC_RGHT),
 
 // layer Mac Funnction
