@@ -110,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,   XXXXXXX,    XXXXXXX,     XXXXXXX,   XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                XXXXXXX,
     KC_MUTE,    KC_VOLD,    KC_VOLU,    KC_MPRV,    KC_MPLY,    KC_MNXT,    XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,   XXXXXXX,    XXXXXXX,                            XXXXXXX,    XXXXXXX,
     XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,   MO(_SYS),   RGB_SPD,     RGB_SPI,   XXXXXXX,                            XXXXXXX,    RM_VALU,    XXXXXXX,
-    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                                                                            XXXXXXX,    MO(_MACFN), XXXXXXX,    RM_NEXT,    RM_VALD,    RM_HUEU),
+    XXXXXXX,    XXXXXXX,    XXXXXXX,    MAC_SEARCH,                                                                         XXXXXXX,    MO(_MACFN), XXXXXXX,    RM_NEXT,    RM_VALD,    RM_HUEU),
 
 // layer Win
 [_WIN] = LAYOUT_75_ansi(
